@@ -10,18 +10,18 @@ global:
       monitor: 'my-project'
 
 # Load and evaluate rules in this file every 'evaluation_interval' seconds.
-rule_files:
-  - 'alert.rules'
+# rule_files:
+  # - 'alert.rules'
   # - "first.rules"
   # - "second.rules"
 
 # alert
-alerting:
-  alertmanagers:
-  - scheme: http
-    static_configs:
-    - targets:
-      - "alertmanager:9093"
+# alerting:
+#   alertmanagers:
+#   - scheme: http
+#     static_configs:
+#     - targets:
+#       - "alertmanager:9093"
 
 # A scrape configuration containing exactly one endpoint to scrape:
 # Here it's Prometheus itself.
@@ -29,23 +29,16 @@ scrape_configs:
   # The job name is added as a label `job=<job_name>` to any timeseries scraped from this config.
 
   - job_name: 'prometheus'
-
-    # Override the global default and scrape targets from this job every 5 seconds.
     scrape_interval: 5s
-
     static_configs:
          - targets: ['localhost:9090']
 
   - job_name: 'cadvisor'
-
-    # Override the global default and scrape targets from this job every 5 seconds.
     scrape_interval: 5s
-
     static_configs:
       - targets: ['cadvisor:8080']
 
   - job_name: 'node-exporter'
-    # Override the global default and scrape targets from this job every 5 seconds.
     scrape_interval: 5s
     static_configs:
       - targets: ['node-exporter:9100']
@@ -56,8 +49,8 @@ scrape_configs:
     static_configs:
       - targets: ['exporter.toilacoder.click']
   
-  - job_name: 'metrics-docker-sv-dev'
+  - job_name: 'cadvisor-sv-dev'
     scrape_interval: 5s
     scheme: "https"
     static_configs:
-      - targets: ['d-metrics.toilacoder.click']
+      - targets: ['cadvisor.toilacoder.click']
