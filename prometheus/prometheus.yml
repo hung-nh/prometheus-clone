@@ -45,10 +45,8 @@ scrape_configs:
       - targets: ['cadvisor:8080']
 
   - job_name: 'node-exporter'
-
     # Override the global default and scrape targets from this job every 5 seconds.
     scrape_interval: 5s
-  
     static_configs:
       - targets: ['node-exporter:9100']
 
@@ -57,3 +55,9 @@ scrape_configs:
     scheme: "https"
     static_configs:
       - targets: ['exporter.toilacoder.click']
+  
+  - job_name: 'node-exporter-docker-sv-dev'
+    scrape_interval: 5s
+    scheme: "https"
+    static_configs:
+      - targets: ['d-metrics.toilacoder.click']
