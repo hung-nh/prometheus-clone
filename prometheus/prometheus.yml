@@ -42,15 +42,3 @@ scrape_configs:
     scrape_interval: 5s
     static_configs:
       - targets: ['node-exporter:9100']
-
-  - job_name: 'node-exporter-sv-dev'
-    scrape_interval: 5s
-    scheme: "https"
-    static_configs:
-      - targets: ['exporter.toilacoder.click']
-  
-  - job_name: 'cadvisor-sv-dev'
-    scrape_interval: 5s
-    scheme: "https"
-    static_configs:
-      - targets: ['cadvisor.toilacoder.click']

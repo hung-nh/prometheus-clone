@@ -34,7 +34,9 @@ services:
           - node.role==manager
       restart_policy:
         condition: on-failure
-
+      resources:
+         limits:
+         memory: 512M
   node-exporter:
     image: quay.io/prometheus/node-exporter:latest
     volumes:
@@ -54,7 +56,9 @@ services:
       mode: global
       restart_policy:
           condition: on-failure
-
+      resources:
+         limits:
+         memory: 512M
   alertmanager:
     image: prom/alertmanager
     ports:
@@ -88,7 +92,9 @@ services:
       mode: global
       restart_policy:
           condition: on-failure
-
+      resources:
+         limits:
+         memory: 512M
   grafana:
     image: grafana/grafana
     depends_on:
@@ -109,6 +115,9 @@ services:
           - node.role==manager
       restart_policy:
         condition: on-failure
+      resources:
+         limits:
+         memory: 512M
 
 #  pushgateway:
 #    image: prom/pushgateway

@@ -74,6 +74,9 @@ services:
           - "traefik.docker.network=traefik"
       restart_policy:
         condition: on-failure
+        resources:
+        limits:
+          memory: 512MB
 
   node-exporter:
     image: prom/node-exporter
