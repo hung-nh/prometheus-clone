@@ -35,55 +35,77 @@ scrape_configs:
 
   - job_name: 'cadvisor'
     scrape_interval: 15s
-    static_configs:
+    static_configs: 
       - targets: ['cadvisor:8080']
+      - labels:
+        job: cadvisor-VM4
 
   - job_name: 'node-exporter'
     scrape_interval: 15s
     static_configs:
       - targets: ['node-exporter:9100']
+      - labels:
+        job: exporter-VM4
 
   - job_name: 'cadvisor-vm5'
     scrape_interval: 15s
     static_configs:
       - targets: ['58.186.85.133:8080']
+      - labels:
+        job: cadvisor-VM5
 
   - job_name: 'node-exporter-vm5'
     scrape_interval: 15s
     static_configs:
       - targets: ['58.186.85.133:9100']
+      - labels:
+        job: exporter-VM5
 
   - job_name: 'cadvisor-vm1'
     scrape_interval: 15s
     static_configs:
       - targets: ['58.186.205.39:8080']
+      - labels:
+        job: cadvisor-VM1
 
   - job_name: 'node-exporter-vm1'
     scrape_interval: 15s
     static_configs:
       - targets: ['58.186.205.39:9100']
+      - labels:
+        job: exporter-VM1
 
   - job_name: 'cadvisor-vm2'
     scrape_interval: 15s
     static_configs:
-      - targets: ['58.186.205.92:8080']
+      - targets: ['58.186.205.92:8180']
+      - labels:
+        job: cadvisor-VM2
 
   - job_name: 'node-exporter-vm2'
     scrape_interval: 15s
     static_configs:
       - targets: ['58.186.205.92:9100']
+      - labels:
+        job: exporter-VM2
 
   - job_name: 'cadvisor-vm3'
     scrape_interval: 15s
     static_configs:
       - targets: ['58.186.205.155:8080']
+      - labels:
+        job: cadvisor-VM
 
   - job_name: 'node-exporter-vm3'
     scrape_interval: 15s
     static_configs:
       - targets: ['58.186.205.155:9100']
+      - labels:
+        job: exporter-VM3
 
   - job_name: 'node-exporter-vm6'
     scrape_interval: 15s
     static_configs:
       - targets: ['58.186.85.205:9100']
+      - labels:
+        job: exporter-VM6
