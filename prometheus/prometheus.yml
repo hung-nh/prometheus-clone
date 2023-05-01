@@ -75,10 +75,11 @@ scrape_configs:
       - labels:
         job: exporter-VM1
 
+# Đổi chỗ này vì trùng port với portainer
   - job_name: 'cadvisor-vm2'
     scrape_interval: 15s
     static_configs:
-      - targets: ['58.186.205.92:8180'] // Đổi chỗ này vì trùng port với portainer
+      - targets: ['58.186.205.92:8180'] 
       - labels:
         job: cadvisor-VM2
 
